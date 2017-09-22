@@ -26,9 +26,19 @@ class Price(db.Model):
     def __repr__(self):
         return '<Price %r>' % self.id
 
+import requests
+import json
+def get_eth(exchange):
+    api_uri = 'https://coincheck.com/api/ticker'
+    res = requests.get(api_uri).text
+    data = json.loads(res)
+    return(data)
+
 @app.route('/')
 def index():
     rows = Price.query.all()
+    data = get_eth(1)
+    print(data)
     return render_template('index.html', rows=rows)
 
 if __name__ == '__main__':
