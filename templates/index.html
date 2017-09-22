@@ -1,0 +1,9 @@
+<!doctype html>
+<title>Eth Price Check</title>
+
+<div>
+  <p>hello world</p>
+  {% for row in rows %}
+  <li>{{ row.id }} : {{ row.bid }} : {{ row.ask }} : {{ row.exchange_id }} : {{ row.created_at }} </li>
+  {% endfor %}
+</div>
